@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import {  SafeAreaView, StyleSheet, Image, TouchableOpacity, Text, View, Dimensions } from 'react-native';
+import {  SafeAreaView, StyleSheet, Image, TouchableOpacity, Text, View, Dimensions, ScrollView } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import MapView, { Marker } from 'react-native-maps';
 
@@ -76,28 +76,29 @@ export default function HomeMaps( { navigation } ) {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <View style={styles.container1}>
+      <ScrollView style={styles.container1}>
         <MapView style={styles.map} onPress={(event) => {
-          setLatitude(event.nativeEvent.coordinate.latitude)
-          setLongitude(event.nativeEvent.coordinate.longitude)
-        }}>
-          <Marker 
-            coordinate={{ latitude: latitude, longitude: longitude }}
-            title={titulo}
-            description={descricao}
-          /> 
-          {
-            
-            maps.map((marker, id) => <Marker
-              key={id}
-              coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
-              title= {marker.title}
-              description= {marker.description}
-            />)
-          }
-        </MapView>
-        </View>
-      <View style={styles.container2}>
+            setLatitude(event.nativeEvent.coordinate.latitude)
+            setLongitude(event.nativeEvent.coordinate.longitude)
+            }}>
+            <Marker 
+              coordinate={{ latitude: latitude, longitude: longitude }}
+              title={titulo}
+              description={descricao}
+            /> 
+            {
+              
+              maps.map((marker, id) => <Marker
+                key={id}
+                coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
+                title= {marker.title}
+                description= {marker.description}
+              />)
+            }
+          </MapView>
+      </ScrollView>
+
+        <ScrollView style={styles.container2}>
           <View style={styles.form_container}>
             <TextInput style={styles.input} placeholder=' Titulo' value={titulo} onChangeText={setTitulo} />
             <TextInput style={styles.input} placeholder=' Descrição' value={descricao} onChangeText={setDescricao} />
@@ -107,8 +108,7 @@ export default function HomeMaps( { navigation } ) {
                </Text>
             </TouchableOpacity>
           </View>
-      </View>
-
+        </ScrollView>
 
     </View>
   );
@@ -123,8 +123,9 @@ const styles = StyleSheet.create({
     height: 400,
   },
   container2: {
-    height: 300,
+    height: 200,
     backgroundColor: 'white',
+    
     
   },
   form_container: {
