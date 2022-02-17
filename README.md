@@ -26,7 +26,7 @@
 <br>
 
 ## Vídeo explicativo
-[Ver Vídeo em breve]()
+[Ver Vídeo](https://youtu.be/4i2SIJMGOwY)
 
 ## Iniciando projeto
 - npm install (baixa o node_modules)
@@ -50,7 +50,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Integração com a API da UFRN
 - [x] método de GET e POST (para recebimento e envio de dados) implementado
 - [x] Deixar 100% funcional
-- [ ] Vídeo explicativo
+- [x] Vídeo explicativo
 
 ## 📫 Contribuindo para *APP MAPS*
 
